@@ -1,5 +1,11 @@
 ﻿// DRILL PARAMETERS (3 test cases)
 
+/*
+ -- Create a new INTERFACE, named IAlertDAO, that containes the same methods as AlertDAO
+ -- AlertDAO should implement the IAlertDAI interface.
+ -- AlertService should have a constructor that accepts IAlertDAO.
+ -- The RaiseAlert() and GetAlert() methods should use the object passed through the constructor.
+ */
 
 
 // BASE CODE PROVIDED
