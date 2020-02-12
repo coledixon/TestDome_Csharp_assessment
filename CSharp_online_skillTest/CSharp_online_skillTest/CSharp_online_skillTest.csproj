@@ -46,6 +46,8 @@
     <Compile Include="DRILL 1\drill1_solution.cs" />
     <Compile Include="DRILL 2\drill2_params.cs" />
     <Compile Include="DRILL 2\drill2_solution.cs" />
+    <Compile Include="DRILL 3\drill3_params.cs" />
+    <Compile Include="DRILL 3\drill3_solution.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
