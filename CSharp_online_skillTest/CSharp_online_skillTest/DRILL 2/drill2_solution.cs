@@ -3,46 +3,49 @@
 using System.Collections.Generic;
 using System;
 
-public class AlertService
+namespace CSharp_online_skillTest.DRILL_2
 {
-    private readonly AlertDAO storage = new AlertDAO();
-    public IAlertDAO _iad;
-
-    public AlertService(IAlertDAO iad)
+    public class AlertService
     {
-        _iad = iad;
+        private readonly AlertDAO storage = new AlertDAO();
+        public IAlertDAO _iad;
+
+        public AlertService(IAlertDAO iad)
+        {
+            _iad = iad;
+        }
+
+        public Guid RaiseAlert()
+        {
+            return _iad.AddAlert(DateTime.Now);
+        }
+
+        public DateTime GetAlertTime(Guid id)
+        {
+            return _iad.GetAlert(id);
+        }
     }
 
-    public Guid RaiseAlert()
+    public class AlertDAO : IAlertDAO
     {
-        return _iad.AddAlert(DateTime.Now);
+        private readonly Dictionary<Guid, DateTime> alerts = new Dictionary<Guid, DateTime>();
+
+        public Guid AddAlert(DateTime time)
+        {
+            Guid id = Guid.NewGuid();
+            this.alerts.Add(id, time);
+            return id;
+        }
+
+        public DateTime GetAlert(Guid id)
+        {
+            return this.alerts[id];
+        }
     }
 
-    public DateTime GetAlertTime(Guid id)
+    public interface IAlertDAO
     {
-        return _iad.GetAlert(id);
+        Guid AddAlert(DateTime time);
+        DateTime GetAlert(Guid id);
     }
-}
-
-public class AlertDAO : IAlertDAO
-{
-    private readonly Dictionary<Guid, DateTime> alerts = new Dictionary<Guid, DateTime>();
-
-    public Guid AddAlert(DateTime time)
-    {
-        Guid id = Guid.NewGuid();
-        this.alerts.Add(id, time);
-        return id;
-    }
-
-    public DateTime GetAlert(Guid id)
-    {
-        return this.alerts[id];
-    }
-}
-
-public interface IAlertDAO
-{
-    Guid AddAlert(DateTime time);
-    DateTime GetAlert(Guid id);
 }
