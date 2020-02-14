@@ -2,7 +2,7 @@
 
 /*
  Implement the UNIQUENAMES method. 
- When passed 2 arrays of names, it will return an array containing the namthat sppear in EITHER or BOTH arrays.
+ When passed 2 arrays of names, it will return an array containing the names that appear in EITHER or BOTH arrays.
  The returned array should have no duplicates.
  */
 
